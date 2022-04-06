@@ -21,3 +21,4 @@ commands:
   rld:
     discription: Reloads the plugin.
     usage: /<command>
+    aliases: [jreload, jrld, jonsstuffrld, jonsstuffreload, jrldp]

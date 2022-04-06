@@ -18,6 +18,6 @@ commands:
   givewand:
     discription: Gives the player a wand.
     usage: /<command>
-  RLD:
+  rld:
     discription: Reloads the plugin.
     usage: /<command>

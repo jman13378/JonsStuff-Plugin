@@ -1,0 +1,23 @@
+name: JonsStuff
+version: 0.4.7-SNAPSHOT
+author: Jonathan
+main: cf.garconia.jonsstuff.JonsStuff
+api-version: 1.17
+commands:
+  heal:
+    discription: Heals player to max health.
+    usage: /<command>
+    aliases: [ jheal, jonsstuffheal, jhealme ]
+  feed:
+    discription: feeds player to max saturation.
+    usage: /<command>
+    aliases: [ jfeed, jonsstufffeed, jfeedme ]
+  farmtime:
+    discription: Spawns an entity on a player.
+    usage: /<command>
+  givewand:
+    discription: Gives the player a wand.
+    usage: /<command>
+  RLD:
+    discription: Reloads the plugin.
+    usage: /<command>

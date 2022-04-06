@@ -1,43 +1,39 @@
 package cf.garconia.jonsstuff.commands;
 
+import cf.garconia.jonsstuff.JonsStuff;
+import cf.garconia.jonsstuff.items.itemManager;
 import org.bukkit.ChatColor;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
-import org.bukkit.plugin.java.JavaPlugin;
 
-import cf.garconia.jonsstuff.items.itemManager;
+public class Commands implements CommandExecutor {
 
-public class Commands extends JavaPlugin implements CommandExecutor {
-	FileConfiguration config = getConfig();
-
+	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-		if (!(sender instanceof Player)) { 
+		if (!(sender instanceof Player)) {
 			sender.sendMessage(ChatColor.RED + "Only Players Can execute This Command");
-			return true; 
+			return true;
 		}
 		Player player = (Player) sender;
-		
+
 		if (cmd.getName().equalsIgnoreCase("heal")) {
 			if (player.hasPermission("jonsstuff.command.heal")) {
 				double maxHealth = player.getAttribute(Attribute.GENERIC_MAX_HEALTH).getDefaultValue();
 				player.setHealth(maxHealth);
-				player.sendMessage("§e§l(!) §eHealth Filled");
+				player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&e&l(!) &eHealth Filled"));
 				return true;
 			} else {
-				player.sendMessage("§c§l(!) §cMissing Permission");
-				player.sendMessage("§c§l(!) §cPermission: jonsstuff.command.heal");
+				player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&c&l(!) &cMissing Permission"));
+				player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&c&l(!) &cPermission: jonsstuff.command.heal"));
 			}
-		}
-		else if (cmd.getName().equalsIgnoreCase("feed")) {
+		} else if (cmd.getName().equalsIgnoreCase("feed")) {
 			player.setFoodLevel(20);
-			player.sendMessage("§e§l(!) §eHunder Filled");
-		}
-		else if (cmd.getName().equalsIgnoreCase("farmtime")) {
+			player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&e&l(!) &eHunder Filled"));
+		} else if (cmd.getName().equalsIgnoreCase("farmtime")) {
 			if (args.length >= 2) {
 				try {
 					EntityType entity = EntityType.valueOf(args[0].toUpperCase());
@@ -46,21 +42,18 @@ public class Commands extends JavaPlugin implements CommandExecutor {
 						player.getWorld().spawnEntity(player.getLocation(), entity);
 					}
 				} catch (IllegalArgumentException e) {
-					player.sendMessage("§c§l(!) §cThat Is Not A Valid Entity");
-				
+					player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&c&l(!) &cThat Is Not A Valid Entity"));
+
 				}
 			} else {
-				player.sendMessage("§c§l(!) §c/farmtime <mob> <amount>");
+				player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&c&l(!) &c/farmtime <mob> <amount>"));
 			}
-		}
-		else if (cmd.getName().equalsIgnoreCase("givewand")) {
-			player.getInventory().addItem(itemManager.wand);
-			player.sendMessage("§e§l(!) §eGiven Wand");
-		}
-		
-		else if (cmd.getName().equalsIgnoreCase("rld")) {
+		} else if (cmd.getName().equalsIgnoreCase("givewand")) {
+			player.getInventory().addItem(itemManager.createWand());
+			player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&e&l(!) &eGiven Wand"));
+		} else if (cmd.getName().equalsIgnoreCase("rld")) {
 			if (player.hasPermission("jonsstuff.command.reload")) {
-				reloadConfig();
+				JonsStuff.getInstance().reloadConfig();
 			}
 		}
 		return true;

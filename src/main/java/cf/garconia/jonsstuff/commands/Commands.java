@@ -28,7 +28,7 @@ public class Commands implements CommandExecutor {
 				return true;
 			} else {
 				player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&c&l(!) &cMissing Permission"));
-				player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&c&l(!) &cPermission: jonsstuff.command.heal"));
+				player.sendMessage(ChatColor.translateAlternateColorCodes('#', "#c#l(!) #c#lPermission: #cjonsstuff.command.heal"));
 			}
 		} else if (cmd.getName().equalsIgnoreCase("feed")) {
 			player.setFoodLevel(20);

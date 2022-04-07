@@ -1,12 +1,24 @@
-#######################################################
-############# Made By - Jonathan_Nathan ###############
-#######################################################
+#######################################################################
+###### Made By - Jonathan_Nathan - https://github.com/jonjon1322 ######
+#######################################################################
 
 # Commands
 # Heal, Feed, FarmTime, GiveWand
+# default = true
 
 Commands:
   Heal: true
   Feed: true
   Farmtime: true
   Givewand: true
+
+# Should you use the default perms
+# default = true
+
+use-default-perms: true
+
+specfic-perms:
+  Heal-perm:
+  Feed-perm:
+  Givewand-perm:
+  Farmtime-perm:

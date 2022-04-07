@@ -37,10 +37,14 @@ public class Commands implements CommandExecutor {
 				if (JonsStuff.getInstance().getConfig().getBoolean("Commands.Feed", true)) {
 					player.setFoodLevel(20);
 					player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&e&l(!) &eHunder Filled"));
-			} else {
-				player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&c&l(!) &cMissing Permission"));
-				player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&c&l(!) &cPermission: jonsstuff.command.f"));
-			}
+				}
+				player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&e&l(!) &cSorry But this command has been disabled"));
+			
+		} else {
+					player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&c&l(!) &cMissing Permission"));
+					player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&c&l(!) &cPermission: jonsstuff.command.feed"));
+				}
+		
 			
 		} else if (cmd.getName().equalsIgnoreCase("farmtime")) {
 			if (player.hasPermission("jonsstuff.command.farmtime")) {
@@ -85,7 +89,6 @@ public class Commands implements CommandExecutor {
 				player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&c&l(!) &cMissing Permission"));
 				player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&c&l(!) &cPermission: jonsstuff.reload"));
 			}
-		}
 		}
 	return true;
 	}

@@ -1,5 +1,5 @@
 name: JonsStuff
-version: 0.5.1-SNAPSHOT
+version: 1.0.0-SNAPSHOT
 author: Jonathan
 main: cf.garconia.jonsstuff.JonsStuff
 api-version: 1.17
@@ -8,16 +8,60 @@ commands:
     description: Heals player to max health.
     usage: /<command>
     aliases: [ jheal, jonsstuffheal, jhealme ]
+    permission: jonsstuff.command.heal
   feed:
     description: feeds player to max saturation.
     usage: /<command>
     aliases: [ jfeed, jonsstufffeed, jfeedme ]
+    permission: jonsstuff.command.feed
   farmtime:
     description: Spawns an entity on a player.
     usage: /<command>
+    permission: jonsstuff.command.farmtime
   givewand:
     description: Gives the player a wand.
     usage: /<command>
+    permission: jonsstuff.command.givewand
   rld:
     description: Reloads the Config.
     usage: /<command>
+    permission: jonsstuff.reload
+permissions:
+  jonsstuff.command.*:
+    description: gives all Plugin perms FOR COMMANDS
+    default: op
+    children:
+      jonsstuff.command.heal: op
+      jonsstuff.command.rld: op
+      jonsstuff.command.givewand: op
+      jonsstuff.command.farmtime: op
+      jonsstuff.command.feed: op
+  jonsstuff.*:
+    description: gives all Plugin perms
+    default: op
+    children:
+      jonsstuff.command.heal: op
+      jonsstuff.command.rld: op
+      jonsstuff.command.givewand: op
+      jonsstuff.command.farmtime: op
+      jonsstuff.command.feed: op
+  jonsstuff.command.heal:
+    description: gives permission to use /heal
+    default: op
+
+  jonsstuff.command.feed:
+    description: gives permission to use /feed
+    default: op
+
+  jonsstuff.command.givewand:
+    description: gives permission to use /givewand
+    default: op
+    
+  jonsstuff.command.farmtime:
+    description: gives permission to use /farmtime
+    default: op
+  jonsstuff.reload:
+    description: gives permission to use /rld
+    default: op
+    children:
+      jonsstuff.command.reload: op

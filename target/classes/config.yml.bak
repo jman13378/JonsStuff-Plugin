@@ -8,5 +8,5 @@
 Commands:
   Heal: true
   Feed: true
-  Farmtime: true
-  Givewand: true
+  FarmTime: true
+  GiveWand: true

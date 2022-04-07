@@ -1,5 +1,5 @@
 name: JonsStuff
-version: 0.4.7-SNAPSHOT
+version: 0.5.1-SNAPSHOT
 author: Jonathan
 main: cf.garconia.jonsstuff.JonsStuff
 api-version: 1.17

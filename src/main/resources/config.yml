@@ -6,7 +6,7 @@
 # Heal, Feed, FarmTime, GiveWand
 
 Commands:
-  - Heal: true
-  - Feed: true
-  - FarmTime: true
-  - GiveWand: true
+  Heal: true
+  Feed: true
+  Farmtime: true
+  Givewand: true

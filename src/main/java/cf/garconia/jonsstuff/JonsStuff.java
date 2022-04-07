@@ -26,7 +26,7 @@ public class JonsStuff extends JavaPlugin implements Listener {
 		saveDefaultConfig();
 		getServer().getPluginManager().registerEvents(new Events(), this);
 
-		for (String cmd : Arrays.asList("heal", "feed", "farmtime", "givewand", "RLD")) {
+		for (String cmd : Arrays.asList("heal", "feed", "farmtime", "givewand", "rld")) {
 			getCommand(cmd).setExecutor(new Commands());
 		}
 
@@ -53,15 +53,5 @@ public class JonsStuff extends JavaPlugin implements Listener {
 		} else {
 			player.sendMessage("You are not awesome...");
 		}
-
-	}
-
-	public void onReload(CommandSender player) {
-		player.sendMessage("Reloading");
-		player.sendMessage("Reloading.");
-		player.sendMessage("Reloading..");
-		player.sendMessage("Reloading...");
-		reloadConfig();
-		player.sendMessage("Reload Complete!");
 	}
 }

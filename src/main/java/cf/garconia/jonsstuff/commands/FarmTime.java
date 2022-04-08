@@ -30,6 +30,7 @@ public class FarmTime implements CommandExecutor {
 						} catch (IllegalArgumentException e) {
 						player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&c&l(!) &cThat Is Not A Valid Entity"));
 					}
+						player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&e&l(!) &cSorry But this command has been disabled"));
 
 				} else {
 					player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&c&l(!) &c/farmtime <mob> <amount>"));

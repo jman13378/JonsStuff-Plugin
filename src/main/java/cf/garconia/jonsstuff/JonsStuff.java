@@ -9,7 +9,11 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import cf.garconia.jonsstuff.commands.Commands;
+import cf.garconia.jonsstuff.commands.CreateWand;
+import cf.garconia.jonsstuff.commands.FarmTime;
+import cf.garconia.jonsstuff.commands.FeedCommand;
+import cf.garconia.jonsstuff.commands.HealCommand;
+import cf.garconia.jonsstuff.commands.Reload;
 import cf.garconia.jonsstuff.events.Events;
 
 public class JonsStuff extends JavaPlugin implements Listener {
@@ -25,11 +29,11 @@ public class JonsStuff extends JavaPlugin implements Listener {
 	public void onEnable() {
 		saveDefaultConfig();
 		getServer().getPluginManager().registerEvents(new Events(), this);
-
-		for (String cmd : Arrays.asList("heal", "feed", "farmtime", "givewand", "rld")) {
-			getCommand(cmd).setExecutor(new Commands());
-		}
-
+		getCommand("heal").setExecutor(new HealCommand());
+		getCommand("rld").setExecutor(new Reload());
+		getCommand("feed").setExecutor(new FeedCommand());
+		getCommand("givewand").setExecutor(new CreateWand());
+		getCommand("farmtime").setExecutor(new FarmTime());
 		getServer().getConsoleSender().sendMessage(ChatColor.GREEN + "[Jons-Stuff] Plugin Is Enabled!");
 	}
 

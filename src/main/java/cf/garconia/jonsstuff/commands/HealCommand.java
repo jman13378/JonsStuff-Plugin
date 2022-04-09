@@ -19,8 +19,8 @@ public class HealCommand implements CommandExecutor {
 		}
 		Player player = (Player) sender;
 		if (cmd.getName().equalsIgnoreCase("heal")) {
-			if (JonsStuff.getInstance().getConfig().getBoolean("Perms.HealEnabled", false)) {
-				if (player.hasPermission("jonsstuff.command.heal")) {
+			if (JonsStuff.getInstance().getConfig().getBoolean("Perms.Heal.enabled", false)) {
+				if (player.hasPermission(JonsStuff.getInstance().getConfig().getString("Perms.Heal.perm")) {
 					if (JonsStuff.getInstance().getConfig().getBoolean("Commands.Heal", true)) {
 						double maxHealth = player.getAttribute(Attribute.GENERIC_MAX_HEALTH).getDefaultValue();
 						player.setHealth(maxHealth);
@@ -30,15 +30,15 @@ public class HealCommand implements CommandExecutor {
 						player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefix") + JonsStuff.getInstance().getConfig().getString("Messages.Heal-Disabled")));
 					}
 				} else {
-					if (JonsStuff.getInstance().getConfig().getBoolean("Perms.HealEnabled", false)) {
+					if (!JonsStuff.getInstance().getConfig().getBoolean("Perms.Heal.enabled")) {
 						player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefix") + JonsStuff.getInstance().getConfig().getString("Messages.NoPermission-Message") + "\n" + JonsStuff.getInstance().getConfig().getString("Messages.Permission-Tell" + "jonsstuff.command.heal")));
 					}
-					if (JonsStuff.getInstance().getConfig().getBoolean("Perms.HealEnabled", true)) {
+					else {
 						player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefix") + JonsStuff.getInstance().getConfig().getString("Messages.NoPermission-Message") + "\n" + JonsStuff.getInstance().getConfig().getString("Messages.Permission-Tell") + JonsStuff.getInstance().getConfig().getString("Perms.HealEnabled.perm")));
 					}
 				}
 			}
-			if (player.hasPermission(JonsStuff.getInstance().getConfig().getString("Perms.HealEnabled.heal"))) {
+			if (player.hasPermission(JonsStuff.getInstance().getConfig().getString("Perms.Heal.enabled"))) {
 				if (JonsStuff.getInstance().getConfig().getBoolean("Commands.Heal", true)) {
 				double maxHealth = player.getAttribute(Attribute.GENERIC_MAX_HEALTH).getDefaultValue();
 				player.setHealth(maxHealth);
@@ -48,10 +48,10 @@ public class HealCommand implements CommandExecutor {
 				player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefix") + JonsStuff.getInstance().getConfig().getString("Messages.Heal-Disabled")));
 			}
 		} else {
-			if (JonsStuff.getInstance().getConfig().getBoolean("Perms.HealEnabled", false)) {
+			if (!JonsStuff.getInstance().getConfig().getBoolean("Perms.Heal.enabled")) {
 				player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefix") + JonsStuff.getInstance().getConfig().getString("Messages.NoPermission-Message") + "\n" + JonsStuff.getInstance().getConfig().getString("Messages.Permission-Tell" + "jonsstuff.command.heal")));
 			}
-			if (JonsStuff.getInstance().getConfig().getBoolean("Perms.HealEnabled", true)) {
+			else {
 				player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefix") + JonsStuff.getInstance().getConfig().getString("Messages.NoPermission-Message") + "\n" + JonsStuff.getInstance().getConfig().getString("Messages.Permission-Tell") + JonsStuff.getInstance().getConfig().getString("Perms.HealEnabled.perm")));
 				
 			}

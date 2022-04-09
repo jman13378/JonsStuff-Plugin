@@ -45,18 +45,24 @@ Messages:
 # default Enabled: false
 
 Perms:
-  FeedEnabled: false
+  Feed:
 # the perm needed to execute the command feed
+    enabled: false
     perm: "jonsstuff.command.feed"
-  HealEnabled: false
+  Heal:
 # the perm needed to execute the command heal
+    enabled: false
     perm: "jonsstuff.command.heal"
-  FarmTime-Enabled: false
+  FarmTime:
 # the perm needed to execute the command farmtime
+    enabled: false
     perm: "jonsstuff.command.farmtime"
-  GiveWandEnabled: false
+  GiveWand:
 # the perm needed to execute the command givewand
+    enabled: false
     perm: "jonsstuff.command.givewand"
-  ReloadEnabled: false
+  Reload:
 # the perm needed to execute the command reload
+    enabled: false
     perm: "jonsstuff.reload"
+ 

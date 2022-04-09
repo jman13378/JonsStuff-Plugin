@@ -17,17 +17,36 @@ public class FeedCommand implements CommandExecutor {
 		}
 		Player player = (Player) sender;
 		if (cmd.getName().equalsIgnoreCase("feed")) {
-			if (player.hasPermission("jonsstuff.command.feed")) {
-				if (JonsStuff.getInstance().getConfig().getBoolean("Commands.Feed", true)) {
-					player.setFoodLevel(20);
-					player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&e&l(!) &eHunder Filled"));
+			if (JonsStuff.getInstance().getConfig().getBoolean("Perms.FeedEnabled", false)) {
+				if (player.hasPermission("jonsstuff.command.feed")) {
+					if (JonsStuff.getInstance().getConfig().getBoolean("Commands.Feed", true)) {
+						player.setFoodLevel(20);
+						player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefix") + " &eHunder Filled"));
+					}
+					player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefix") + JonsStuff.getInstance().getConfig().getString("Messages.FeedDisabled")));
+			} else {
+				if (JonsStuff.getInstance().getConfig().getBoolean("Perms.FeedEnabled", false)) {
+					player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefix") + JonsStuff.getInstance().getConfig().getString("Messages.NoPermission-Message") + "\n" + JonsStuff.getInstance().getConfig().getString("Messages.Permission-Tell" + "jonsstuff.command.feed")));
 				}
-				player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&e&l(!) &cSorry But this command has been disabled"));
-			
-		} else {
-					player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&c&l(!) &cMissing Permission"));
-					player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&c&l(!) &cPermission: jonsstuff.command.feed"));
+				if (JonsStuff.getInstance().getConfig().getBoolean("Perms.FeedEnabled", true)) {
+					player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefix") + JonsStuff.getInstance().getConfig().getString("Messages.NoPermission-Message") + "\n" + JonsStuff.getInstance().getConfig().getString("Messages.Permission-Tell") + JonsStuff.getInstance().getConfig().getString("Perms.FeedEnabled.perm")));
+				}
 		}
+		}
+			if (player.hasPermission(JonsStuff.getInstance().getConfig().getString("Perms.FeedEnabled.perm"))) {
+				if (JonsStuff.getInstance().getConfig().getBoolean("Commands.Feed", true)) {
+				player.setFoodLevel(20);
+				player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefix") + " &eHunder Filled"));
+			}
+			player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefix") + JonsStuff.getInstance().getConfig().getString("Messages.Feed-Disabled")));
+	} else {
+		if (JonsStuff.getInstance().getConfig().getBoolean("Perms.FeedEnabled", false)) {
+			player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefix") + JonsStuff.getInstance().getConfig().getString("Messages.NoPermission-Message") + "\n" + JonsStuff.getInstance().getConfig().getString("Messages.Permission-Tell" + "jonsstuff.command.feed")));
+		}
+		if (JonsStuff.getInstance().getConfig().getBoolean("Perms.FeedEnabled", true)) {
+			player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefix") + JonsStuff.getInstance().getConfig().getString("Messages.NoPermission-Message") + "\n" + JonsStuff.getInstance().getConfig().getString("Messages.Permission-Tell") + JonsStuff.getInstance().getConfig().getString("Perms.FeedEnabled.perm")));
+		}
+	}
 		}
 	return true;
 	}

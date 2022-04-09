@@ -18,6 +18,7 @@ public class FarmTime implements CommandExecutor {
 		}
 		Player player = (Player) sender;
 		if (cmd.getName().equalsIgnoreCase("farmtime")) {
+			if (JonsStuff.getInstance().getConfig().getBoolean("Perms.FarmTimeEnabled", false)) {
 			if (player.hasPermission("jonsstuff.command.farmtime")) {
 				if (JonsStuff.getInstance().getConfig().getBoolean("Commands.Farmtime", true)) {
 					if (args.length >= 2) {
@@ -28,20 +29,55 @@ public class FarmTime implements CommandExecutor {
 								player.getWorld().spawnEntity(player.getLocation(), entity);
 							}
 						} catch (IllegalArgumentException e) {
-						player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&c&l(!) &cThat Is Not A Valid Entity"));
-					}
-						player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&e&l(!) &cSorry But this command has been disabled"));
+						player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefix") + " &cThat Is Not A Valid Entity"));
+						}
 
-				} else {
-					player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&c&l(!) &c/farmtime <mob> <amount>"));
+					} else {
+					player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefix") + " &c/farmtime <mob> <amount>"));
 			
 				}
 				}
+				player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefix") + JonsStuff.getInstance().getConfig().getString("Messages.FarmTimeDisabled")));
+
+			} else {
+				if (JonsStuff.getInstance().getConfig().getBoolean("Perms.FarmTimeEnabled", false)) {
+					player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefix") + JonsStuff.getInstance().getConfig().getString("Messages.NoPermission-Message") + "\n" + JonsStuff.getInstance().getConfig().getString("Messages.Permission-Tell" + "jonsstuff.command.farmtime")));
+				}
+				if (JonsStuff.getInstance().getConfig().getBoolean("Perms.FarmTimeEnabled", true)) {
+					player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefix") + JonsStuff.getInstance().getConfig().getString("Messages.NoPermission-Message") + "\n" + JonsStuff.getInstance().getConfig().getString("Messages.Permission-Tell") + JonsStuff.getInstance().getConfig().getString("Perms.FarmTimeEnabled.perm")));
+				}
+			}
+			if (player.hasPermission(JonsStuff.getInstance().getConfig().getString("Perms.FarmTimeEnabled.perm"))) {
+				if (JonsStuff.getInstance().getConfig().getBoolean("Commands.Farmtime", true)) {
+				if (args.length >= 2) {
+					try {
+						EntityType entity = EntityType.valueOf(args[0].toUpperCase());
+						int amount = Integer.parseInt(args[1]);
+						for (int i = 0; i < amount; i++) {
+							player.getWorld().spawnEntity(player.getLocation(), entity);
+						}
+					} catch (IllegalArgumentException e) {
+					player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefix") + " &cThat Is Not A Valid Entity"));
+					}
+
+				} else {
+				player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefix") + " &c/farmtime <mob> <amount>"));
+		
+			}
+			}
+			player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefix") + JonsStuff.getInstance().getConfig().getString("Messages.FarmTime-Disabled")));
+
 		} else {
-			player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&c&l(!) &cMissing Permission"));
-			player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&c&l(!) &cPermission: jonsstuff.command.farmtime"));
+			if (JonsStuff.getInstance().getConfig().getBoolean("Perms.FarmTimeEnabled", false)) {
+				player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefix") + JonsStuff.getInstance().getConfig().getString("Messages.NoPermission-Message") + "\n" + JonsStuff.getInstance().getConfig().getString("Messages.Permission-Tell" + "jonsstuff.command.farmtime")));
+			}
+			if (JonsStuff.getInstance().getConfig().getBoolean("Perms.FarmTimeEnabled", true)) {
+				player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefix") + JonsStuff.getInstance().getConfig().getString("Messages.NoPermission-Message") + "\n" + JonsStuff.getInstance().getConfig().getString("Messages.Permission-Tell") + JonsStuff.getInstance().getConfig().getString("Perms.FarmTimeEnabled.perm")));
+			}
 		}
+			}
 		}
 		return true;
 	}
 }
+

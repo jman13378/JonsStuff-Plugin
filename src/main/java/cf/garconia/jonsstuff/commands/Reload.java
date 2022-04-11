@@ -35,20 +35,6 @@ public class Reload implements CommandExecutor {
 				}
 			}
 			}
-			if (player.hasPermission(JonsStuff.getInstance().getConfig().getString("Perms.ReloadEnabled.perm"))) {
-				player.sendMessage(ChatColor.GREEN + "Reloading");
-				JonsStuff.getInstance().reloadConfig();
-				player.sendMessage(ChatColor.DARK_GREEN + "Reload Complete!");
-				JonsStuff.getInstance().getServer().getConsoleSender().sendMessage(ChatColor.DARK_GREEN + "Reload Completed by " + player.getName());
-		} else {
-			if (JonsStuff.getInstance().getConfig().getBoolean("Perms.ReloadEnabled", false)) {
-				player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefix") + JonsStuff.getInstance().getConfig().getString("Messages.NoPermission-Message") + "\n" + JonsStuff.getInstance().getConfig().getString("Messages.Permission-Tell") + "jonsstuff.command.reload"));
-			}
-			if (JonsStuff.getInstance().getConfig().getBoolean("Perms.ReloadEnabled", true)) {
-				player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefix") + JonsStuff.getInstance().getConfig().getString("Messages.NoPermission-Message") + "\n" + JonsStuff.getInstance().getConfig().getString("Messages.Permission-Tell") + JonsStuff.getInstance().getConfig().getString("Perms.ReloadEnabled.perm")));
-			}
-		}
-			
 		}
 		return true;
 	}

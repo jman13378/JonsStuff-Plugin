@@ -22,17 +22,20 @@ Commands:
 
 Messages:
 # this is the prefix for the plugin
-  Prefix: "&e&l[Jons-Stuff]"
+  Prefixs:
+    Normal: "&e[&e&lJons-Stuff&e]"
+    Cmd-Disabled: "&e[&c&lJons-Stuff&e]"
+    NoPermission: "&e[&c&lJons-Stuff&e]"
 # The messages sent to a player if the command [heal] is disabled
-  Heal-Disabled: "Sorry But this command has been disabled"
+  Heal-Disabled: "&cSorry But this command has been disabled"
 # The messages sent to a player if the command [feed] is disabled
-  Feed-Disabled: "Sorry But this command has been disabled"
+  Feed-Disabled: "&cSorry But this command has been disabled"
 # The messages sent to a player if the command [farmtime] is disabled
-  FarmTime-Disabled: "Sorry But this command has been disabled"
+  FarmTime-Disabled: "&cSorry But this command has been disabled"
 # The messages sent to a player if the command [givewand] is disabled
-  GiveWand-Disabled: "Sorry But this command has been disabled"
+  GiveWand-Disabled: "&cSorry But this command has been disabled"
 # The messages sent to a player if the command [rld] is disabled
-  Reload-Disabled: "Sorry But this command has been disabled"
+  Reload-Disabled: "&cSorry But this command has been disabled"
 # the message sent to the player if they dont have the permission
   NoPermission-Message: "&cMissing Permission"
 # this is what on '&cPermission:' will be replaced with
@@ -45,18 +48,24 @@ Messages:
 # default Enabled: false
 
 Perms:
-  FeedEnabled: false
+  Feed:
 # the perm needed to execute the command feed
-    feed: "jonsstuff.command.feed"
-  HealEnabled: false
+    enabled: false
+    perm: "jonsstuff.command.feed"
+  Heal:
 # the perm needed to execute the command heal
-    heal: "jonsstuff.command.heal"
-  FarmTime-Enabled: false
+    enabled: false
+    perm: "jonsstuff.command.heal"
+  FarmTime:
 # the perm needed to execute the command farmtime
-    farmTime: "jonsstuff.command.farmtime"
-  GiveWandEnabled: false
+    enabled: false
+    perm: "jonsstuff.command.farmtime"
+  GiveWand:
 # the perm needed to execute the command givewand
-    giveWand: "jonsstuff.command.givewand"
-  ReloadEnabled: false
+    enabled: false
+    perm: "jonsstuff.command.givewand"
+  Reload:
 # the perm needed to execute the command reload
-    reload: "jonsstuff.reload"
+    enabled: false
+    perm: "jonsstuff.reload"
+ 

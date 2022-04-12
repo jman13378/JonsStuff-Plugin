@@ -22,7 +22,7 @@ Commands:
 
 Messages:
 # this is the prefix for the plugin
-  Prefixs:
+  Prefixes:
     Normal: "&e[&e&lJons-Stuff&e]"
     Cmd-Disabled: "&e[&c&lJons-Stuff&e]"
     NoPermission: "&e[&c&lJons-Stuff&e]"
@@ -69,3 +69,11 @@ Perms:
     enabled: false
     perm: "jonsstuff.reload"
  
+Events:
+# if a join message should be shared on player JOIN def = true
+  PlayerJoin:
+    Enabled: true
+    Self: true
+    Server: true
+# if a join message should be shared on player FIRST JOIN def = true
+    First: true

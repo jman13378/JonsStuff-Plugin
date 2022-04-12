@@ -25,18 +25,18 @@ public class HealCommand implements CommandExecutor {
 					if (player.hasPermission("jonsstuff.command.heal")) {	
 						double maxHealth = player.getAttribute(Attribute.GENERIC_MAX_HEALTH).getDefaultValue();
 						player.setHealth(maxHealth);
-						player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefixs.Normal") + " &eHealth Filled"));
+						player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefixes.Normal") + " &eHealth Filled"));
 						Bukkit.getLogger().info("healddd");
 						
 						return true;
 					} else if (!(player.hasPermission("jonsstuff.command.heal"))) {
-						player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefixs.NoPermission") + " " + JonsStuff.getInstance().getConfig().getString("Messages.NoPermission-Message") + "\n" + JonsStuff.getInstance().getConfig().getString("Messages.Permission-Tell") + " " + "jonsstuff.command.heal"));
+						player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefixes.NoPermission") + " " + JonsStuff.getInstance().getConfig().getString("Messages.NoPermission-Message") + "\n" + JonsStuff.getInstance().getConfig().getString("Messages.Permission-Tell") + " " + "jonsstuff.command.heal"));
 						Bukkit.getLogger().info("cus perm");
 						return true;
 						
 					}
 				} else if (!(JonsStuff.getInstance().getConfig().getBoolean("Commands.Heal", true))) {
-					player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefixs.Cmd-Disabled") + " " + JonsStuff.getInstance().getConfig().getString("Messages.Heal-Disabled")));
+					player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefixes.Cmd-Disabled") + " " + JonsStuff.getInstance().getConfig().getString("Messages.Heal-Disabled")));
 					Bukkit.getLogger().info("disabled");
 					return true;
 				}
@@ -46,18 +46,18 @@ public class HealCommand implements CommandExecutor {
 					if (player.hasPermission(JonsStuff.getInstance().getConfig().getString("Perms.Heal.perm"))) {
 						double maxHealth = player.getAttribute(Attribute.GENERIC_MAX_HEALTH).getDefaultValue();
 						player.setHealth(maxHealth);
-						player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefixs.Normal") + " &eHealth Filled"));
+						player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefixes.Normal") + " &eHealth Filled"));
 						Bukkit.getLogger().info("healed");
 						
 						return true;
 					} else if (!(player.hasPermission(JonsStuff.getInstance().getConfig().getString("Perms.Heal.perm")))) {
 						Bukkit.getLogger().info("no perm with custom perm");
-						player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefixs.NoPermission") + " " + JonsStuff.getInstance().getConfig().getString("Messages.NoPermission-Message") + "\n" + JonsStuff.getInstance().getConfig().getString("Messages.Permission-Tell") + " " + JonsStuff.getInstance().getConfig().getString("Perms.Heal.perm")));
+						player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefixes.NoPermission") + " " + JonsStuff.getInstance().getConfig().getString("Messages.NoPermission-Message") + "\n" + JonsStuff.getInstance().getConfig().getString("Messages.Permission-Tell") + " " + JonsStuff.getInstance().getConfig().getString("Perms.Heal.perm")));
 						return true;
 						
 					}
 				} else if (!(JonsStuff.getInstance().getConfig().getBoolean("Commands.Heal", true))) {
-					player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefixs.Cmd-Disabled") + " " + JonsStuff.getInstance().getConfig().getString("Messages.Heal-Disabled")));
+					player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefixes.Cmd-Disabled") + " " + JonsStuff.getInstance().getConfig().getString("Messages.Heal-Disabled")));
 					Bukkit.getLogger().info("command is disabled");
 					return true;
 				}

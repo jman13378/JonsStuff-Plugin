@@ -23,14 +23,14 @@ public class GiveWand implements CommandExecutor {
 					if (player.hasPermission("jonsstuff.command.givewand")) {
 						player.getInventory().addItem(itemManager.createWand());
 						
-						player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefixs.Normal") + " &eGiven Wand"));
+						player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefixes.Normal") + " &eGiven Wand"));
 						return true;
 					} else if (!(player.hasPermission("jonsstuff.command.givewand"))) {
-						player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefixs.NoPermission") + " " + JonsStuff.getInstance().getConfig().getString("Messages.NoPermission-Message") + "\n" + JonsStuff.getInstance().getConfig().getString("Messages.Permission-Tell") + " " + "jonsstuff.command.givewand"));
+						player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefixes.NoPermission") + " " + JonsStuff.getInstance().getConfig().getString("Messages.NoPermission-Message") + "\n" + JonsStuff.getInstance().getConfig().getString("Messages.Permission-Tell") + " " + "jonsstuff.command.givewand"));
 						return true;
 					}
 				} else if (!(JonsStuff.getInstance().getConfig().getBoolean("Commands.GiveWand", true))) {
-					player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefixs.Cmd-Disabled") + " " + JonsStuff.getInstance().getConfig().getString("Messages.GiveWand-Disabled")));
+					player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefixes.Cmd-Disabled") + " " + JonsStuff.getInstance().getConfig().getString("Messages.GiveWand-Disabled")));
 					return true;
 				}
 			}
@@ -39,14 +39,14 @@ public class GiveWand implements CommandExecutor {
 					if (player.hasPermission((JonsStuff.getInstance().getConfig().getString("Perms.GiveWand.perm")))) {
 						player.getInventory().addItem(itemManager.createWand());
 						
-						player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefixs.Normal") + " &eGiven Wand"));
+						player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefixes.Normal") + " &eGiven Wand"));
 						return true;
 					} else if (!(player.hasPermission(JonsStuff.getInstance().getConfig().getString("Perms.GiveWand.perm")))) {
-						player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefixs.NoPermission") + " " + JonsStuff.getInstance().getConfig().getString("Messages.NoPermission-Message") + "\n" + JonsStuff.getInstance().getConfig().getString("Messages.Permission-Tell") + " " + JonsStuff.getInstance().getConfig().getString("Perms.GiveWand.perm")));
+						player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefixes.NoPermission") + " " + JonsStuff.getInstance().getConfig().getString("Messages.NoPermission-Message") + "\n" + JonsStuff.getInstance().getConfig().getString("Messages.Permission-Tell") + " " + JonsStuff.getInstance().getConfig().getString("Perms.GiveWand.perm")));
 						return true;
 					}
 				} else if (!(JonsStuff.getInstance().getConfig().getBoolean("Commands.GiveWand", true))) {
-					player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefixs.Cmd-Disabled") + " " + JonsStuff.getInstance().getConfig().getString("Messages.GiveWand-Disabled")));
+					player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefixes.Cmd-Disabled") + " " + JonsStuff.getInstance().getConfig().getString("Messages.GiveWand-Disabled")));
 					return true;
 				}
 			}

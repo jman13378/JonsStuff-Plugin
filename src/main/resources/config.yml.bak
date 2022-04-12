@@ -9,7 +9,7 @@ Commands:
   Heal: true
   Feed: true
   Farmtime: true
-  Givewand: true
+  GiveWand: true
 
 # This is so you can set custom messages for the commands
 #
@@ -48,14 +48,14 @@ Messages:
 # default Enabled: false
 
 Perms:
-  Feed:
-# the perm needed to execute the command feed
-    enabled: false
-    perm: "jonsstuff.command.feed"
   Heal:
 # the perm needed to execute the command heal
     enabled: false
     perm: "jonsstuff.command.heal"
+  Feed:
+# the perm needed to execute the command feed
+    enabled: false
+    perm: "jonsstuff.command.feed"
   FarmTime:
 # the perm needed to execute the command farmtime
     enabled: false
@@ -69,3 +69,11 @@ Perms:
     enabled: false
     perm: "jonsstuff.reload"
  
+Events:
+# if a join message should be shared on player JOIN def = true
+  PlayerJoin:
+    Enabled: true
+    Self: true
+    Server: true
+# if a join message should be shared on player FIRST JOIN def = true
+    First: true

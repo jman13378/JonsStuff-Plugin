@@ -10,6 +10,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 
+import cf.garconia.jonsstuff.JonsStuff;
 import cf.garconia.jonsstuff.items.itemManager;
 
 public class Events implements Listener {
@@ -17,10 +18,16 @@ public class Events implements Listener {
 	@EventHandler
 	public static void onPlayerJoin(PlayerJoinEvent event) {
 		Player player = event.getPlayer();
-		player.sendMessage(ChatColor.LIGHT_PURPLE + "Welcome To The Server");
-
+		if (JonsStuff.getInstance().getConfig().getBoolean("Events.PlayerJoin.Enabled", true)) {
+			if (JonsStuff.getInstance().getConfig().getBoolean("Events.PlayerJoin.Self", true)) {
+				player.sendMessage(ChatColor.LIGHT_PURPLE + player.getName() + " Welcome To The Server");
+			if (JonsStuff.getInstance().getConfig().getBoolean("Events.PlayerJoin.First", true)) {
+				JonsStuff.getInstance().getServer().broadcastMessage(ChatColor.LIGHT_PURPLE + "Welcome " + player.getName());
+				JonsStuff.getInstance().getCustomConfig().set("lol.lol", player);
+			}
+			}
+		}
 	}
-	
 
 	@EventHandler
 	public static void onPlayerWalk(PlayerMoveEvent event) {

@@ -7,6 +7,8 @@ import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import cf.garconia.jonsstuff.JonsStuff;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +19,7 @@ public class itemManager {
 		ItemMeta meta = item.getItemMeta();
 		meta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&6Stick Of Truth"));
 		List<String> lore = new ArrayList<String>();
-		lore.add(ChatColor.translateAlternateColorCodes('&', "&e&l(!) &7This Powerful artifact is a relic of"));
+		lore.add(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefixes.Normal") + " " + "&7This Powerful artifact is a relic of"));
 		lore.add(ChatColor.translateAlternateColorCodes('&', "&7Minecraft's ancient history!"));
 		meta.setLore(lore);
 		meta.addEnchant(Enchantment.KNOCKBACK, 10, false);
@@ -25,5 +27,4 @@ public class itemManager {
 		item.setItemMeta(meta);
 		return item;
 	}
-
 }

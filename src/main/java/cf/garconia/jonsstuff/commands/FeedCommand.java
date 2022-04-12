@@ -22,16 +22,16 @@ public class FeedCommand implements CommandExecutor {
 				if (JonsStuff.getInstance().getConfig().getBoolean("Commands.Feed", true)) {
 					if (player.hasPermission("jonsstuff.command.feed")) {
 						player.setFoodLevel(20);
-						player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefixs.Normal") + " &eHunder Filled"));
+						player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefixes.Normal") + " &eHunder Filled"));
 						return true;
 					} else if (!(player.hasPermission("jonsstuff.command.feed"))) {
-						player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefixs.NoPermission") + " " + JonsStuff.getInstance().getConfig().getString("Messages.NoPermission-Message") + "\n" + JonsStuff.getInstance().getConfig().getString("Messages.Permission-Tell") + " " + "jonsstuff.command.feed"));
+						player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefixes.NoPermission") + " " + JonsStuff.getInstance().getConfig().getString("Messages.NoPermission-Message") + "\n" + JonsStuff.getInstance().getConfig().getString("Messages.Permission-Tell") + " " + "jonsstuff.command.feed"));
 						Bukkit.getLogger().info("cus perm");
 						return true;
 					
 					}
 				} else if (!(JonsStuff.getInstance().getConfig().getBoolean("Commands.Feed", true))) {
-					player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefixs.Cmd-Disabled") + " " + JonsStuff.getInstance().getConfig().getString("Messages.Feed-Disabled")));
+					player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefixes.Cmd-Disabled") + " " + JonsStuff.getInstance().getConfig().getString("Messages.Feed-Disabled")));
 					Bukkit.getLogger().info("disabled");
 					return true;
 				}
@@ -40,17 +40,17 @@ public class FeedCommand implements CommandExecutor {
 				if (JonsStuff.getInstance().getConfig().getBoolean("Commands.Feed", true)) {
 					if (player.hasPermission(JonsStuff.getInstance().getConfig().getString("Perms.Feed.perm"))) {
 						player.setFoodLevel(20);
-						player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefixs.Normal") + " &eHunder Filled"));
+						player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefixes.Normal") + " &eHunder Filled"));
 						return true;
 						
 					} else if (!(player.hasPermission(JonsStuff.getInstance().getConfig().getString("Perms.Feed.perm")))) {
-						player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefixs.NoPermission") + " " + JonsStuff.getInstance().getConfig().getString("Messages.NoPermission-Message") + "\n" + JonsStuff.getInstance().getConfig().getString("Messages.Permission-Tell") + " " + JonsStuff.getInstance().getConfig().getString("Perms.Feed.perm")));
+						player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefixes.NoPermission") + " " + JonsStuff.getInstance().getConfig().getString("Messages.NoPermission-Message") + "\n" + JonsStuff.getInstance().getConfig().getString("Messages.Permission-Tell") + " " + JonsStuff.getInstance().getConfig().getString("Perms.Feed.perm")));
 						Bukkit.getLogger().info("cus perm");
 						return true;
 					}
 					
 				} else if (!(JonsStuff.getInstance().getConfig().getBoolean("Commands.Feed", true))) {
-					player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefixs.Cmd-Disabled") + " " + JonsStuff.getInstance().getConfig().getString("Messages.Feed-Disabled")));
+					player.sendMessage(ChatColor.translateAlternateColorCodes('&', JonsStuff.getInstance().getConfig().getString("Messages.Prefixes.Cmd-Disabled") + " " + JonsStuff.getInstance().getConfig().getString("Messages.Feed-Disabled")));
 					Bukkit.getLogger().info("disabled");
 					return true;
 				}

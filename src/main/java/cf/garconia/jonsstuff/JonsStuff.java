@@ -24,6 +24,8 @@ public class JonsStuff extends JavaPlugin implements Listener {
 
 	private static JonsStuff instance;
 	private File customConfigFile;
+	private File customConfigFeed;
+	private File customConfigUsers;
     private FileConfiguration customConfig;
 
 	@Override
@@ -50,16 +52,18 @@ public class JonsStuff extends JavaPlugin implements Listener {
 	private void createCustomConfig() {
         customConfigFile = new File(getDataFolder(), "Logs/Feed.yml");
         if (!customConfigFile.exists()) {
-            customConfigFile.getParentFile().mkdirs();
+        	customConfigFile.getParentFile().mkdirs();
             saveResource("Logs/Feed.yml", false);
-         }
-
+        }
+        
         customConfig = new YamlConfiguration();
         try {
             customConfig.load(customConfigFile);
         } catch (IOException | InvalidConfigurationException e) {
             e.printStackTrace();
         }
+
+        
 	}
 	@Override
 	public void onDisable() {
